@@ -1,5 +1,7 @@
 import json
+import asyncio
 
+import serial
 
 class H8OA:
     """
@@ -16,10 +18,22 @@ class H8OA:
 
 
     def __init__(self):
-        pass
+        self.serial = serial.Serial("/dev/ttyACMO", 9600, timeout=1)
+        self.serial.reset_input_buffer()
+        self.serial.reset_output_buffer()
+        self.loop = asyncio.new_event_loop()
+
+    async def _send_state_to_serial(self, state: str) -> None:
+        """
+        Takes a state string, and sends it over the serial connection.
+        """
+        while self.serial.out_waiting():
+            await asyncio.sleep(0.5)
+        self.serial.write(state.encode("ascii"))
 
     def handle_command(self, cmd: json) -> None:
         """
         
         """
-        print(cmd)
+        print(state)
+        self.loop.create_task(self._send_state_to_serial(state))
