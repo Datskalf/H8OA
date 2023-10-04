@@ -1,3 +1,7 @@
+"""
+Container document for the Unnamed Octopod Controller.\n
+"""
+
 import json
 import asyncio
 
@@ -31,9 +35,10 @@ class H8OA:
             await asyncio.sleep(0.5)
         self.serial.write(state.encode("ascii"))
 
-    def handle_command(self, cmd: json) -> None:
+    def handle_command(self, state: json) -> None:
         """
-        
+        Converts the button states from the controls
+        to robot state to be sent to the robot.
         """
         print(state)
         self.loop.create_task(self._send_state_to_serial(state))
