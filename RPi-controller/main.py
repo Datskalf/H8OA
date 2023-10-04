@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from flask import Flask, request, render_template
 
 import Lib.H8OA as H8OA
