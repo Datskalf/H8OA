@@ -26,7 +26,15 @@ Octopod should assume. The JSON format is outlined below.
   "btnA": false,
   "btnB": false,
   "btnX": false,
-  "btnY": false
+  "btnY": false,
+  "btnL1": false,
+  "btnL2": false,
+  "btnL3": [ -1, false ],
+  "btnR1": false,
+  "btnR2": false,
+  "btnR3": [ -1, false ],
+  "start": false,
+  "select": false
 }
 ```
 
