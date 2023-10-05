@@ -15,9 +15,7 @@ The goal of the robot is to practice:
 HTTP communication is utilized as a bridge between the controller and the
 Raspberry PI. A JSON object is passed along a POST request to signify the
 current state of the remote, whereafter the RPi determines the state the
-Octopod should assume.
-
-The JSON format is outlined below.
+Octopod should assume. The JSON format is outlined below.
 
 ```
 {
@@ -37,7 +35,6 @@ Serial communication is utilized in between the Raspberry PI and and Arduino.
 The communication over this bridge is formatted as state IDs, where one ID
 maps to one state. These states are outlined below.
 
-States:
 - 0xx: single action
   - 000: No state change, maintain current state on board.
 - 1xx: permanent state change
