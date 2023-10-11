@@ -3,6 +3,7 @@ import asyncio
 
 import serial
 
+
 class H8OA:
     """
     This class is the main control portion for the Unnamed Octopod.\n
@@ -15,7 +16,6 @@ class H8OA:
     __credits__ = ["Harry Bowker [hab75]"]
     __status__ = "Development"
     __license__ = "MIT"
-
 
     def __init__(self):
         self.serial = serial.Serial("/dev/ttyACMO", 9600, timeout=1)

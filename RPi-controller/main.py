@@ -7,9 +7,11 @@ import Lib.H8OA as H8OA
 controller = H8OA.H8OA()
 app = Flask(__name__)
 
+
 @app.route("/control")
 def control() -> Flask:
     return render_template("control.html")
+
 
 @app.route("/instruction", methods=["POST"])
 def handle_instruction() -> Response:
@@ -21,4 +23,4 @@ def handle_instruction() -> Response:
 
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(debug=True)
