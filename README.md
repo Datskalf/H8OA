@@ -44,8 +44,8 @@ Octopod should assume. The JSON format is outlined below.
     "pressed": false
   },
 
-  "start": false,
-  "select": false
+  "gyroX": 0,
+  "gyroY": 0
 }
 ```
 
