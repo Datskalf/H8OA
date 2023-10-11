@@ -19,20 +19,32 @@ Octopod should assume. The JSON format is outlined below.
 
 ```
 {
-  "btnUp": false,
-  "btnDown": false,
-  "btnLeft": false,
-  "btnRight": false,
+  "dPadUp": false,
+  "dPadDown": false,
+  "dPadLeft": false,
+  "dPadRight": false,
+
   "btnA": false,
   "btnB": false,
   "btnX": false,
   "btnY": false,
+
   "btnL1": false,
   "btnL2": false,
-  "btnL3": [ -1, false ],
+  "JoyL": {
+    "x": 0,
+    "y": 0,
+    "pressed": false
+  },
+
   "btnR1": false,
   "btnR2": false,
-  "btnR3": [ -1, false ],
+  "JoyR": {
+    "x": 0,
+    "y": 0,
+    "pressed": false
+  },
+
   "start": false,
   "select": false
 }
