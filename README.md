@@ -1,7 +1,6 @@
 # H8OA
 ## About
-H8OA is the temporary name given to an octopod made by Harry Bowker (hab75) and
-Sondre Mathias Meiland-Flakstad (som38)
+H8OA is the temporary name given to an octopod made by Harry Bowker (hab75) and Sondre Mathias Meiland-Flakstad (som38)
 
 The goal of the robot is to practice:
 - Working as a group
