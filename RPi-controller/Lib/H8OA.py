@@ -1,7 +1,3 @@
-"""
-Container document for the Unnamed Octopod Controller.\n
-"""
-
 import json
 import asyncio
 
@@ -41,4 +37,4 @@ class H8OA:
         to robot state to be sent to the robot.
         """
         print(state)
-        self.loop.create_task(self._send_state_to_serial(state))
+        self.loop.create_task(self._send_state_to_serial(json.dumps(state)))
