@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <style>
+            button {
+                min-width: 200px;
+                min-height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function send(event) {
+                fetch(
+                    "http://10.83.3.175:5000/instruction",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            "btn": event
+                        })
+                    }
+                );
+            }
+        </script>
+
+        <h1>Working!</h1>
+        <button onclick="send('A')">A</button>
+        <button onclick="send('B')">B</button>
+        <button onclick="send('X')">X</button>
+        <button onclick="send('Y')">Y</button>
+    </body>
+</html>
