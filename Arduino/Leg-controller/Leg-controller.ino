@@ -3,6 +3,7 @@
 
 // Include the AccelStepper Library
 #include <AccelStepper.h>
+#include "test.h"
 
 // Define step constant
 #define MotorInterfaceType 4
@@ -27,4 +28,6 @@ void loop() {
 
 	// Move the motor one step
 	myStepper.run();
+	Serial.println(getInt());
+
 }
