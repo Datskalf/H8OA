@@ -1,3 +1,15 @@
+/*
+ * This code works as the central controller for the H8OA robot.
+ * 
+ * The code receives the robot state, and tells each 
+ * leg controller what to do.
+ * 
+ * Created by Sondre Meiland-Flakstad
+ * Date: 2023-10-11
+ * Last modified by Sondre Meiland-Flakstad
+ * Date: 2023-10-20
+ */
+
 #include <SoftwareSerial.h>
 #include "serial_comms.h"
 
