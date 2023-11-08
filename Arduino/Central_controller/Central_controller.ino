@@ -7,12 +7,13 @@
  * Created by Sondre Meiland-Flakstad
  * Date: 2023-10-11
  * Last modified by Sondre Meiland-Flakstad
- * Date: 2023-10-20
+ * Date: 2023-11-08
  */
 
 #include <SoftwareSerial.h>
 
 #define LEG_COUNT 8
+#define LED_DELAY 100
 
 #define RPI_RX 0
 #define RPI_TX 1
@@ -46,6 +47,15 @@
 //};
 
 
+void blinkLED(int count) {
+  for (; count > 0; count--) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(LED_DELAY);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(LED_DELAY);
+  }
+}
+
 
 void setup() {
   Serial.begin(9600);
@@ -59,15 +69,28 @@ void loop() {
   if (readCmd.length() > 0) {
     float readVal = Serial.parseFloat();
 
-    Serial.print(readCmd);
-    Serial.print("\t");
-    Serial.println(readVal);
+    //Serial.print(readCmd);
+    //Serial.print("\t");
+    //Serial.println(readVal);
 
 
-    if (readCmd == "led") {
-      digitalWrite(LED_BUILTIN, HIGH);
-      delay((int)readVal);
-      digitalWrite(LED_BUILTIN, LOW);
+    //if (readCmd == "led") {
+    //  digitalWrite(LED_BUILTIN, HIGH);
+    //  delay((int)readVal);
+    //  digitalWrite(LED_BUILTIN, LOW);
+    //}
+
+    if (readCmd == "dPad") {
+      blinkLED(1);
+    } else if (readCmd == "btn") {
+      blinkLED(2);
+    } else if (readCmd == "shoulderBtn") {
+      blinkLED(4);
+    } else if (readCmd == "joystick") {
+      blinkLED(8);
+    } else if (readCmd == "gyro") {
+      blinkLED(16);
     }
+    delay(500);
   }
 }
