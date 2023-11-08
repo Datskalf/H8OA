@@ -17,10 +17,11 @@ def control() -> Flask:
 def handle_instruction() -> Response:
     if request.is_json:
         data = request.json
-        controller.handle_command(data)
+        print(data)
+        #controller.handle_command(data)
         return Response("Accepted", status=200)
     return Response("Incorrect Content-Type", status=406)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port="5000", debug=True)

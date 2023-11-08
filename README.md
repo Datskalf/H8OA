@@ -39,19 +39,21 @@ Octopod should assume. The JSON format is outlined below.
   "btnR3": false,
   "btnR4": false,
   "btnR5": false,
-
-  "JoyR": {
-    "x": 0,
-    "y": 0
-  },
   
-  "JoyL": {
+  "joyL": {
     "x": 0,
     "y": 0
   },
 
-  "gyroX": 0,
-  "gyroY": 0
+  "joyR": {
+    "x": 0,
+    "y": 0
+  },
+
+  "gyro": {
+    "x": 0,
+    "y": 0
+  }
 }
 ```
 

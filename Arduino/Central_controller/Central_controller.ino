@@ -11,7 +11,6 @@
  */
 
 #include <SoftwareSerial.h>
-#include "serial_comms.h"
 
 #define LEG_COUNT 8
 
@@ -35,31 +34,40 @@
 #define LEG8_TX 17
 #define PULSE 18
 
-SoftwareSerial[] legs {
-  SoftwareSerial(LEG1_RX, LEG1_TX);
-  SoftwareSerial(LEG2_RX, LEG2_TX);
-  SoftwareSerial(LEG3_RX, LEG3_TX);
-  SoftwareSerial(LEG4_RX, LEG4_TX);
-  SoftwareSerial(LEG5_RX, LEG5_TX);
-  SoftwareSerial(LEG6_RX, LEG6_TX);
-  SoftwareSerial(LEG7_RX, LEG7_TX);
-  SoftwareSerial(LEG8_RX, LEG8_TX);
-};
+//SoftwareSerial[] legs {
+//  SoftwareSerial(LEG1_RX, LEG1_TX);
+//  SoftwareSerial(LEG2_RX, LEG2_TX);
+//  SoftwareSerial(LEG3_RX, LEG3_TX);
+//  SoftwareSerial(LEG4_RX, LEG4_TX);
+//  SoftwareSerial(LEG5_RX, LEG5_TX);
+//  SoftwareSerial(LEG6_RX, LEG6_TX);
+//  SoftwareSerial(LEG7_RX, LEG7_TX);
+//  SoftwareSerial(LEG8_RX, LEG8_TX);
+//};
 
 
 
 void setup() {
-  pinMode(PULSE, OUTPUT);
-
-  for (int i = 0; i < LEG_COUNT; i++) {
-    legs[i].begin(9600);
-  }
-
-  char* message;
-  "Test".toCharArray(message, 5);
-  send_to_all(message);
+  Serial.begin(9600);
+  Serial.setTimeout(100);
+  pinMode(LED_BUILTIN, OUTPUT);
+  return;
 }
 
 void loop() {
+  String readCmd = Serial.readStringUntil(' ');
+  if (readCmd.length() > 0) {
+    float readVal = Serial.parseFloat();
 
+    Serial.print(readCmd);
+    Serial.print("\t");
+    Serial.println(readVal);
+
+
+    if (readCmd == "led") {
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay((int)readVal);
+      digitalWrite(LED_BUILTIN, LOW);
+    }
+  }
 }
