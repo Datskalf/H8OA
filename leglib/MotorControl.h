@@ -32,6 +32,8 @@ class MotorControl {
     void setLimits(int stepperIndex, double minAngle, double maxAngle);
     int angle_to_steps(double angle);
 
+    void setStepperSpeed(int stepperIndex, long speed);
+
   private:
     MyStepper* steppers[3];
 };

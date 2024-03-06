@@ -36,6 +36,10 @@ void MyStepper::setLimits(int minStep, int maxStep) {
   maxSteps = maxStep;
 }
 
+void MyStepper::setSpeed(long speed) {
+  _stepper->setSpeed(speed);
+}
+
 /**
  * Resets the current home location of the servo
  */

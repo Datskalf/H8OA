@@ -139,6 +139,10 @@ void MotorControl::rotate_all(int stepper1_steps, int stepper2_steps, int steppe
   }
 }
 
+void MotorControl::setStepperSpeed(int stepperIndex, long speed) {
+  steppers[stepperIndex]->setSpeed(speed);
+}
+
 /**
  * Rotates all steppers in the system by a set of angles.
  * Will rotate them asyncronously to each other.

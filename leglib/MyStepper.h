@@ -34,6 +34,7 @@ class MyStepper {
 
     void rotateToHome();
     void stepToHome();
+    void setSpeed(long speed);
 
   private:
     const static int default_speed = 15;
