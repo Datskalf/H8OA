@@ -10,6 +10,7 @@
 #define MOTOR_CONTROL_H
 
 #include <Stepper.h>
+#include "MyStepper.h"
 
 /**
  * 
@@ -28,8 +29,11 @@ class MotorControl {
     void rotate_all(int stepper1_steps, int stepper2_steps, int stepper3_steps);
     void rotate_all_angles(double stepper1_angle, double stepper2_angle, double stepper3_angle);
 
+    void setLimits(int stepperIndex, double minAngle, double maxAngle);
+    int angle_to_steps(double angle);
+
   private:
-    MyStepper steppers[3];
+    MyStepper* steppers[3];
 };
 
 #endif

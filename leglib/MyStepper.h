@@ -28,7 +28,9 @@ class MyStepper {
     void rotateTo_angle(double angle);
     void rotateTo_step(int step);
     void stepTo_angle(double angle);
-    void stepTo_angle(int step);
+    void stepTo_step(int step);
+
+    void limitStep(int& deltaStep);
 
     void rotateToHome();
     void stepToHome();

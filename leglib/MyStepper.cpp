@@ -83,7 +83,7 @@ void MyStepper::stepTo_angle(double angle) {
  */
 void MyStepper::rotateBy_step(int step) {
   int deltaStep = step;
-  limitStep(deltaStep)
+  limitStep(deltaStep);
   _stepper->step(deltaStep);
 }
 
@@ -135,20 +135,20 @@ void MyStepper::limitStep(int& deltaStep) {
  * @param angle The angle to convert
  * @return Step count
  */
-int angleToSteps(double angle) {
+int MyStepper::angleToSteps(double angle) {
   return (int)((angle / 360) * steps_per_revolution);
 }
 
 /**
  * Rotates the stepper to its home location.
  */
-void rotateToHome() {
+void MyStepper::rotateToHome() {
   rotateTo_step(0);
 }
 
 /**
  * Steps the stepper once towards its home location.
  */
-void stepToHome() {
+void MyStepper::stepToHome() {
   stepTo_step(0);
 }
