@@ -3,7 +3,7 @@
  * 
  * @author Sondre Meiland-Flakstad
  * @date 2024-02-20
- * @version 1.1 2024-02-21
+ * @version 1.2 2024-03-10
  */
 
 #ifndef MY_STEPPER_H

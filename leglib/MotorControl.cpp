@@ -4,7 +4,6 @@
  * 
  * @author Sondre Meiland-Flakstad
  * @version 1.2 2024-03-10
- * @date 2024-02-14
  */
  
 #include "MyStepper.h"

@@ -3,7 +3,7 @@
  * 
  * @author Sondre Meiland-Flakstad
  * @date 2024-02-20
- * @version 0.2 2023-02-21
+ * @version 1.2 2023-03-10
  */
 
 

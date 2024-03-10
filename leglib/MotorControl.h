@@ -2,8 +2,7 @@
  * A library which controls all servos on a specific leg of the H8OA spider bot
  * 
  * @author Sondre Meiland-Flakstad
- * @version 1.0 2024-02-15
- * @date 2024-02-14
+ * @version 1.2 2024-03-10
  */
 
 #ifndef MOTOR_CONTROL_H

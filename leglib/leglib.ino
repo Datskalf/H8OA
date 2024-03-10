@@ -2,7 +2,7 @@
  * Stepper motor test
  * 
  * @author Sondre Meiland-Flakstad
- * @date 2024-02-14
+ * @version 1.2 2024-03-10
  */
 
 #include "MotorControl.h"
