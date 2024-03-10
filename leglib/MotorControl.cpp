@@ -161,7 +161,5 @@ void MotorControl::setStepperInterval(unsigned int stepperIndex, unsigned int ti
  * @param stepper3_angle What angle for stepper 3 to rotate
  */
 void MotorControl::rotate_all_angles(double stepper1_angle, double stepper2_angle, double stepper3_angle) {
-  rotate_all( angle_to_steps(stepper1_angle),
-              angle_to_steps(stepper2_angle),
-              angle_to_steps(stepper3_angle));
+  rotate_all( angle_to_steps(stepper1_angle), angle_to_steps(stepper2_angle), angle_to_steps(stepper3_angle));
 }
