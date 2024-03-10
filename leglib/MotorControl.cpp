@@ -3,7 +3,7 @@
  * 
  * 
  * @author Sondre Meiland-Flakstad
- * @version 1.1 2024-03-06
+ * @version 1.2 2024-03-10
  * @date 2024-02-14
  */
  
@@ -54,8 +54,8 @@ MotorControl::MotorControl( int stepper1_pin1, int stepper1_pin2, int stepper1_p
  * @param minAngle      Minimum angle of the stepper
  * @param maxAngle      Maximum angle of the stepper
  */
-void MotorControl::setLimits(int stepperIndex, double minAngle, double maxAngle) {
-  if (stepperIndex < 0 || stepperIndex > 2) return;
+void MotorControl::setLimits(unsigned int stepperIndex, double minAngle, double maxAngle) {
+  if (stepperIndex > 2) return;
 
   double angle1 = minAngle < maxAngle ? minAngle : maxAngle;
   double angle2 = maxAngle > minAngle ? maxAngle : minAngle;
@@ -79,10 +79,10 @@ int MotorControl::angle_to_steps(double angle) {
  * @param stepper_select An index [0-2] defining which stepper to rotate
  * @param steps How many steps to rotate the stepper by
  */
-void MotorControl::rotate(int stepper_select, int steps) {
-  if (stepper_select < 0 || stepper_select > 2) return;
+void MotorControl::rotate(unsigned int stepperIndex, int steps) {
+  if (stepperIndex > 2) return;
 
-  steppers[stepper_select]->rotateBy_step(steps);
+  steppers[stepperIndex]->rotateBy_step(steps);
 }
 
 /**
@@ -91,8 +91,9 @@ void MotorControl::rotate(int stepper_select, int steps) {
  * @param stepper_select An index [0-2] defining which stepper to rotate
  * @param angle What angle to rotate the stepper by
  */
-void MotorControl::rotate_angle(int stepper_select, double angle) {
-  rotate(stepper_select, angle_to_steps(angle));
+void MotorControl::rotate_angle(unsigned int stepperIndex, double angle) {
+  if (stepperIndex > 2) return;
+  rotate(stepperIndex, angle_to_steps(angle));
 }
 
 
@@ -139,6 +140,7 @@ void MotorControl::rotate_all(int stepper1_steps, int stepper2_steps, int steppe
 }
 
 void MotorControl::setStepperInterval(unsigned int stepperIndex, unsigned int ticksPerStep) {
+  if (stepperIndex > 2) return;
   steppers[stepperIndex]->setInterval(ticksPerStep);
 }
 
