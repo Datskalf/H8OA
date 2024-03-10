@@ -3,7 +3,7 @@
  * 
  * @author Sondre Meiland-Flakstad
  * @date 2024-02-20
- * @version 0.2 2024-02-21
+ * @version 1.1 2024-02-21
  */
 
 #ifndef MY_STEPPER_H
@@ -34,11 +34,14 @@ class MyStepper {
 
     void rotateToHome();
     void stepToHome();
-    void setSpeed(long speed);
+    void setInterval(int ticksPerStep);
 
   private:
     const static int default_speed = 15;
     const static int steps_per_revolution = 2048;
+
+    unsigned int ticksPerStep;
+    unsigned int currentTick;
 
     Stepper* _stepper;
     int currentStep;
@@ -46,6 +49,7 @@ class MyStepper {
     int minSteps;
 
     int angleToSteps(double angle);
+    bool nextTick();
 };
 
 #endif

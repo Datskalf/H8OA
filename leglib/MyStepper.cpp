@@ -21,8 +21,23 @@
 MyStepper::MyStepper(int pin1, int pin2, int pin3, int pin4) {
   _stepper = new Stepper(steps_per_revolution, pin1, pin2, pin3, pin4);
   _stepper->setSpeed(this->default_speed);
+
+  setInterval(1);
+
   setHome();
   setLimits(-45, 45);
+}
+
+/**
+ * Sets how many times this stepper needs to be moved before actually stepping it.
+ * Lets the set of steppers move ad different speeds.
+ * Will reset the internal tick counter.
+ * 
+ * @param ticksPerStep How many times the stepper has to be moved to actually move it
+ */
+void MyStepper::setInterval(unsigned int ticksPerStep) {
+  this->ticksPerStep = ticksPerStep;
+  currentTick = 0;
 }
 
 /**
@@ -86,6 +101,8 @@ void MyStepper::stepTo_angle(double angle) {
  * @param step total amount of steps to be rotated (pos or neg)
  */
 void MyStepper::rotateBy_step(int step) {
+  if (!nextTick()) return;
+
   int deltaStep = step;
   limitStep(deltaStep);
   _stepper->step(deltaStep);
@@ -98,6 +115,8 @@ void MyStepper::rotateBy_step(int step) {
  * @param step The step position to rotate to
  */
 void MyStepper::rotateTo_step(int step) {
+  if (!nextTick()) return;
+
   int deltaStep = step - currentStep;
   limitStep(deltaStep);
   _stepper->step(deltaStep);
@@ -110,6 +129,8 @@ void MyStepper::rotateTo_step(int step) {
  * @param step The step position to rotate towards
  */
 void MyStepper::stepTo_step(int step) {
+  if (!nextTick()) return;
+
   int deltaStep = step - currentStep;
   if (deltaStep > 0) deltaStep = 1;
   else if (deltaStep < 0) deltaStep = -1;
@@ -155,4 +176,8 @@ void MyStepper::rotateToHome() {
  */
 void MyStepper::stepToHome() {
   stepTo_step(0);
+}
+
+bool MyStepper::nextTick() {
+  return !((++currentTick) % ticksPerStep);
 }

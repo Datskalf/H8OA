@@ -139,8 +139,8 @@ void MotorControl::rotate_all(int stepper1_steps, int stepper2_steps, int steppe
   }
 }
 
-void MotorControl::setStepperSpeed(int stepperIndex, long speed) {
-  steppers[stepperIndex]->setSpeed(speed);
+void MotorControl::setStepperInterval(unsigned int stepperIndex, unsigned int ticksPerStep) {
+  steppers[stepperIndex]->setInterval(ticksPerStep);
 }
 
 /**
