@@ -1,7 +1,6 @@
 /**
  * A library which controls all servos on a specific leg of the H8OA spider bot
  * 
- * TODO: Make the servos rotate at differing speeds.
  * 
  * @author Sondre Meiland-Flakstad
  * @version 1.1 2024-03-06
