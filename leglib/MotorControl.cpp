@@ -139,6 +139,13 @@ void MotorControl::rotate_all(int stepper1_steps, int stepper2_steps, int steppe
   }
 }
 
+/**
+ * Sets how many ticks a servo needs until it moves.
+ * Will reset the internal tick count on change.
+ * 
+ * @param stepperIndex Index of the stepper to update.
+ * @param ticksPerStep How many ticks the stepper needs.
+ */
 void MotorControl::setStepperInterval(unsigned int stepperIndex, unsigned int ticksPerStep) {
   if (stepperIndex > 2) return;
   steppers[stepperIndex]->setInterval(ticksPerStep);
