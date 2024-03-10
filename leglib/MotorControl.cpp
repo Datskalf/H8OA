@@ -76,7 +76,7 @@ int MotorControl::angle_to_steps(double angle) {
 /**
  * Rotates the given stepper by a certain amount of steps
  * 
- * @param stepper_select An index [0-2] defining which stepper to rotate
+ * @param stepperIndex An index [0-2] defining which stepper to rotate
  * @param steps How many steps to rotate the stepper by
  */
 void MotorControl::rotate(unsigned int stepperIndex, int steps) {
@@ -88,7 +88,7 @@ void MotorControl::rotate(unsigned int stepperIndex, int steps) {
 /**
  * Rotates the given stepper by a certain angle
  * 
- * @param stepper_select An index [0-2] defining which stepper to rotate
+ * @param stepperIndex An index [0-2] defining which stepper to rotate
  * @param angle What angle to rotate the stepper by
  */
 void MotorControl::rotate_angle(unsigned int stepperIndex, double angle) {
